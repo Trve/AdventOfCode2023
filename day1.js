@@ -10,17 +10,18 @@ const readLines = (filename) => {
 
 const lines = readLines('./day1input.txt');
 
-const findDigit = (text, reverse = false) => {
-    const chars = reverse
-        ? text.split('').reverse()
-        : text.split('');
+const getFirstDigit = (text, reverse = false) => {
+    const chars = text.split('');
+    if (reverse) {
+        chars.reverse();
+    }
     const digit = chars.find(char => !isNaN(char));
     return parseInt(digit);
 }
 
 const getNumber = (text) => {
-    const digit1 = findDigit(text, false);
-    const digit2 = findDigit(text, true);
+    const digit1 = getFirstDigit(text, false);
+    const digit2 = getFirstDigit(text, true);
     return digit1 * 10 + digit2;
 }
 
