@@ -27,7 +27,7 @@ const getNumber = (text) => {
 
 const getResult = () => {
     return lines.map(getNumber).reduce(
-        (accumulator, currentValue) => accumulator + currentValue,
+        (previousValue, currentValue) => previousValue + currentValue,
         0
     );
 }
